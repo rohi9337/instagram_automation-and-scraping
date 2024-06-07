@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import random
-
+import credentials 
 # Function to generate random sleep times
 def random_sleep(min_time=2, max_time=5):
     time.sleep(random.uniform(min_time, max_time))
@@ -67,11 +67,11 @@ try:
 
     # Enter credentials
     print("Entering username...")
-    human_typing(username_field, "mengstuyaregal9337@gmail.com")
+    human_typing(username_field, credentials.USERNAME)
     random_sleep(1, 3)
     
     print("Entering password...")
-    human_typing(password_field, "wq213737instagram!")
+    human_typing(password_field, credentials.PASSWORD)
     random_sleep(1, 3)
     
     # Click the login button
@@ -106,8 +106,8 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
 
-# finally:
-#     # Only close the browser if it was successfully initialized
-#     if driver is not None:
-#         print("Closing the browser.")
-#         driver.quit()
+finally:
+    # Only close the browser if it was successfully initialized
+    if driver is not None:
+        print("Closing the browser.")
+        driver.quit()
